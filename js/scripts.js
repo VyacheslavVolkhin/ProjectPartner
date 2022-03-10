@@ -100,7 +100,20 @@ $(document).ready(function(){
 			$(this).addClass('active').next('.js-tab-content').slideDown(200);
 		}
 	})
-	
+
+
+    //main-reviews-box
+    if (!!$('.main-reviews-box').offset()) {
+        $('.main-reviews-box .slider').slick({
+            dots: true,
+            slidesToShow: 1,
+            variableWidth: false,
+            infinite: true,
+            adaptiveHeight: true,
+            prevArrow: false,
+            nextArrow: false,
+        });
+    }
 });
 
 

@@ -1,27 +1,185 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"],
-input[type="range"],
-input[type="search"],
-input[type="tel"],
-input[type="url"] {
-	
+.form-input {
+    height: 55px;
+    padding: 0 10px 0 24px;
+    background: none;
+    border: 1px solid var(--clr-bg-dark-gray);
+    font-size: 13px;
+    color: #fff;
+    &:focus {
+        outline: 1px solid var(--clr-bg-dark-gray);
+    }
+    &[disabled] {
+        color: var(--clr-dark-gray);
+        border-color: var(--clr-bg-dark-gray);
+        [placeholder]::-webkit-input-placeholder {color: var(--clr-dark-gray);}
+        [placeholder]:-moz-placeholder {color: var(--clr-dark-gray);}
+        [placeholder]::-moz-placeholder {color: var(--clr-dark-gray);}
+        [placeholder]:-ms-input-placeholder {color: var(--clr-dark-gray);}
+    }
+    &.inp-error {
+        border-color: var(--clr-att-red);
+    }
 }
-textarea {
-	height: 100px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	resize: none;
-}
+[placeholder]::-webkit-input-placeholder {color: #FAFAFA;}
+[placeholder]:-moz-placeholder {color: #FAFAFA;}
+[placeholder]::-moz-placeholder {color: #FAFAFA;}
+[placeholder]:-ms-input-placeholder {color: #FAFAFA;}
 .btn,
 button,
 input[type="submit"] {
-	
+    height: 55px;
+    padding: 0 30px;
+    border: 2px solid var(--clr-att);
+    background: var(--clr-att);
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    &:hover {
+        color: #fff;
+        border-color: var(--clr-att-light);
+        background: var(--clr-att-light);
+    }
+    &:focus {
+        outline: 2px solid var(--clr-bg-gray);
+    }
+    &[disabled], &.button-disabled {
+        pointer-events: none;
+        background: var(--clr-bg-gray);
+        border-color: var(--clr-bg-gray);
+    }
+    &.button-border {
+        border: 1px solid var(--clr-bg-gray);
+        background: none;
+        color: var(--clr-base);
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 1px solid var(--clr-bg-gray);
+            opacity: 0;
+            transition: opacity ease 0.2s;
+        }
+        &:hover {
+            border-color: var(--clr-bg-black);
+            background: var(--clr-bg-black);
+            color: #fff;
+        }
+        &:focus {
+            outline: none;
+            &:before {
+                opacity: 1;
+            }
+        }
+        &[disabled], &.button-disabled {
+            border-color: var(--clr-bg-gray);
+            background: none;
+            color: var(--clr-dark-gray);
+        }
+    }
+}
+.btn-action-ico {
+	min-width: 0;
+	border-radius: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	width: 40px;height: 40px;
+	text-align: center;
+	line-height: 40px;
+	text-decoration: none;
+	transition: all ease 0.2s;
+	flex-shrink: 0;
+    &:not(.btn) {
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+    &.btn {
+        min-width: 0;
+        min-height: 0;
+        padding: 0;
+        display: block;
+    }
+	&:before, &:after, [class*="icon-"], img {
+		display: block;
+		position: absolute;
+		top: 0;bottom: 0;left: 0;right: 0;
+		margin: auto;
+		max-width: 100%;
+		max-height: 100%;
+		transition: all ease 0.2s;
+	}
+	&:before, &:after {
+		content: "";
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: auto auto;
+	}
+	&:hover {
+		text-decoration: none;
+		&:not(.btn) {
+            background: none;
+            box-shadow: none;
+        }
+	}
+    &.ico-menu {
+        &:before {
+            background-image: url(../img/icons/menu.svg);
+            background-size: 30px auto;
+        }
+    }
+    &.ico-close {
+        &:after, &:before {
+            width: 34px;
+            height: 2px;
+            top: 50%;
+            left: 50%;
+            right: auto;
+            bottom: auto;
+            margin: -1px 0 0 -17px;
+            background: #fff;
+            .t-rotate(45deg);
+        }
+        &:before {
+            .t-rotate(-45deg);
+        }
+    }
+}
+.frm-popup {
+    .frm-field {
+        margin-bottom: 30px;
+    }
+    .frm-info {
+        display: block;
+        color: var(--clr-dark-gray);
+        line-height: 1.6;
+        a {
+            color: var(--clr-dark-gray);
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .submit-info {
+        width: 100%;
+        margin: -15px 0 30px 0;
+    }
+    .submit-button {
+        width: 100%;
+        .btn {
+            width: 100%;
+        }
+    }
 }
 .frm-row,
 .frm-field,
@@ -30,6 +188,10 @@ input[type="submit"] {
     flex-wrap: wrap;
 	position: relative;
 	line-height: 1;
+}
+.frm-field {
+    display: block;
+    width: 100%;
 }
 .frm-select {
 	position: relative;
@@ -55,4 +217,53 @@ input[type="submit"] {
             position: absolute;
         }
 	}
+}
+
+.slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    line-height: 1;
+    text-align: center;
+    font-size: 0;
+    margin: 0;
+    li {
+        margin: 0 15px 0 0;
+        padding: 0;
+        display: block;
+        &:last-child {
+            margin: 0;
+        }
+        &:before {
+            display: none;
+        }
+        button {
+            border: none;
+            min-width: 0;
+            padding: 0;
+            box-shadow: none;
+            font-size: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--clr-bg-dark-gray);
+            &:hover, &.active {
+                background: #fff;
+            }
+        }
+    }
+    .slick-active {
+        button {
+            background: #fff;
+        }
+    }
+}
+@media (min-width: 768px) {
+    .frm-popup {
+        .submit-info {
+            margin-bottom: 50px;
+        }
+    }
 }
