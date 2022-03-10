@@ -102,6 +102,24 @@ $(document).ready(function(){
 	})
 
 
+    //animation
+    var sTop = $(window).scrollTop() + $(window).innerHeight();
+    $('.item-animation').each(function () {
+        if ($(this).offset().top < sTop) {
+            $(this).addClass('item-active')
+        }
+    })
+
+    $(window).scroll(function () {
+        var sTop = $(window).scrollTop() + $(window).innerHeight();
+        $('.item-animation').each(function () {
+            if ($(this).offset().top < sTop) {
+                $(this).addClass('item-active')
+            }
+        })
+    });
+
+
     //main-reviews-box
     if (!!$('.main-reviews-box').offset()) {
         $('.main-reviews-box .slider').slick({
@@ -112,6 +130,8 @@ $(document).ready(function(){
             adaptiveHeight: true,
             prevArrow: false,
             nextArrow: false,
+            autoplay: true,
+            autoplaySpeed: 5000
         });
     }
 });
