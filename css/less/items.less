@@ -1,6 +1,92 @@
 /* ----------------------------------- *\
 			items styles
 \* ----------------------------------- */
+.item-new-col {
+    display: block;
+    position: relative;
+    color: var(--clr-dark-gray);
+    .new-title {
+        color: var(--clr-base);
+        margin: 0 0 30px 0;
+        a {
+            color: var(--clr-base);
+            &:hover {
+                color: var(--clr-att);
+            }
+        }
+    }
+    .new-text {
+        display: block;
+    }
+    .new-date {
+        display: block;
+        margin: 15px 0 0 0;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--clr-att);
+    }
+    a {
+        display: block;
+        position: relative;
+        color: var(--clr-dark-gray);
+        &:hover {
+            color: var(--clr-base);
+        }
+    }
+}
+.item-new-inner {
+    display: block;
+    position: relative;
+    color: var(--clr-dark-gray);
+    .new-photo-wrap {
+        display: block;
+        flex-shrink: 0;
+    }
+    .new-info-wrap {
+        display: block;
+        padding: 30px 0 0 0;
+        flex-shrink: 0;
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+    .new-title {
+        color: var(--clr-base);
+        margin: 0 0 15px 0;
+        a {
+            color: var(--clr-base);
+            &:hover {
+                color: var(--clr-att);
+            }
+        }
+    }
+    .new-text {
+        display: block;
+    }
+    .new-date {
+        display: block;
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--clr-att);
+        margin: 30px 0 0 0;
+    }
+    .elm-photo {
+        background: #FAFAFA url(../img/main/logo-bg.svg) center no-repeat;
+        background-size: 200px auto;
+        height: 250px;
+        &:before {
+            display: none;
+        }
+    }
+    a {
+        display: block;
+        position: relative;
+        color: var(--clr-dark-gray);
+        &:hover {
+            color: var(--clr-base);
+        }
+    }
+}
 .item-faq {
     .btn-faq {
         display: block;
@@ -368,6 +454,36 @@
     }
 }
 @media (min-width: 768px) {
+    .item-new-col {
+        .new-date {
+            margin-top: 30px;
+        }
+    }
+    .item-new-inner {
+        display: flex;
+        .new-photo-wrap {
+            width: 230px;
+        }
+        .new-info-wrap {
+            flex: 1;
+            padding: 0 0 0 20px;
+            max-width: calc(100% - 230px);
+            display: flex;
+            flex-direction: column;
+            &:first-child {
+                padding-left: 0;
+                max-width: inherit;
+            }
+        }
+        .new-info {
+            flex: 1;
+            padding: 0 0 12px 0;
+        }
+        .new-date {
+            flex-shrink: 0;
+            margin: 0;
+        }
+    }
     .item-faq {
         .btn-faq {
             padding-top: 32px;
@@ -467,6 +583,14 @@
     }
 }
 @media (min-width: 1024px) {
+    .item-new-inner {
+        .new-photo-wrap {
+            width: 315px;
+        }
+        .new-info-wrap {
+            max-width: calc(100% - 315px);
+        }
+    }
     .item-new {
         .new-title {
             margin-bottom: 30px;
@@ -533,6 +657,26 @@
     }
 }
 @media (min-width: 1280px) {
+    .item-new-col {
+        .new-title {
+            margin-bottom: 25px;
+        }
+        .new-date {
+            margin-top: 25px;
+        }
+    }
+    .item-new-inner {
+        .new-photo-wrap {
+            width: 360px;
+        }
+        .new-info-wrap {
+            padding-left: 60px;
+            max-width: calc(100% - 360px);
+        }
+        .new-title {
+            margin-bottom: 30px;
+        }
+    }
     .item-faq {
         .btn-faq {
             padding-top: 30px;

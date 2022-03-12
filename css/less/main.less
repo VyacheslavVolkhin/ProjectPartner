@@ -43,6 +43,26 @@ p, ul, ol {
 li {
 	position: relative;
 }
+.list-check {
+    li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        &:before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            background: url(../img/icons/check-att.svg) center no-repeat;
+            background-size: 100% auto;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
 a {
 	text-decoration: none;
 	color: var(--clr-att, #F58221);
@@ -87,6 +107,10 @@ h2, .h2-title {
     font-size: 28px;
     line-height: 1.2;
     font-weight: bold;
+    &.title-main {
+        font-size: 32px;
+        line-height: 39/32;
+    }
 }
 h3, .h3-title {
     font-size: 18px;
@@ -115,7 +139,18 @@ h6, .h6-title {
     margin: 0 0 17px 0;
     color: var(--clr-gray);
 }
+.text-title {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+}
 @media (min-width: 768px) {
+    .list-check {
+        li {
+            margin-bottom: 30px;
+        }
+    }
     h1, .h1-title {
         font-size: 38px;
     }
@@ -140,6 +175,9 @@ h6, .h6-title {
     }
     h2, .h2-title {
         font-size: 36px;
+        &.title-main {
+            font-size: 36px;
+        }
     }
     h3, .h3-title {
         font-size: 22px;
